@@ -28,31 +28,6 @@ export default defineConfig([
         },
     },
     {
-        ignores: ['learn/sample_project/sample000/**'],
-        rules: {
-            // 未使用変数
-            'no-unused-vars': [
-                'error',
-                {
-                    argsIgnorePattern: '^_',
-                    varsIgnorePattern: '^_',
-                },
-            ],
-            'no-var': 'error',
-            'prefer-const': 'error',
-            eqeqeq: ['error', 'always'],
-            'no-console': 'warn',
-            // debugger禁止
-            'no-debugger': 'error',
-            // switchのfallthrough検出
-            'no-fallthrough': 'error',
-            // ネストしたifを減らす
-            curly: ['error', 'all'],
-            // 同じimport重複
-            'no-duplicate-imports': 'error',
-        },
-    },
-    {
         files: ['**/__tests__/**/*.{js,mjs,cjs}'],
         rules: {
             'no-console': 'off',
