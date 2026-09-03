@@ -8,6 +8,7 @@
         "lib": "lib"
     },
     "scripts": {
+        "test:functions": "node --test __tests__/functions/**/*.test.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {

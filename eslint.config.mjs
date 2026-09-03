@@ -28,9 +28,22 @@ export default defineConfig([
         },
     },
     {
+        rules: {
+            // 命名に関するルール
+            'no-unused-vars': [
+                'error',
+                { argsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' },
+            ],
+        },
+    },
+    {
         files: ['**/__tests__/**/*.{js,mjs,cjs}'],
         rules: {
             'no-console': 'off',
+            complexity: 'off',
+            'max-lines': 'off',
+            'max-lines-per-function': 'off',
+            'max-statements': 'off',
         },
     },
 ]);
