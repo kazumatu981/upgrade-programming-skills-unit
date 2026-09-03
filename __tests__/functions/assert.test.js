@@ -9,6 +9,8 @@ import {
     AssertionError,
 } from '../../lib/assert.js';
 
+import { GlobalDocumentMock } from './global-document-mock.js';
+
 function __assertIsInstanceOfAssertionError(error) {
     if (!(error instanceof AssertionError)) {
         throw new Error('Expected an instance of AssertionError');
@@ -146,34 +148,22 @@ describe('__assertSomeOf', () => {
 describe('__safeGetElementById', () => {
     const testId = 'test-element';
     const testElement = {};
-    const originalDocument = globalThis.document;
+    const mockDocument = new GlobalDocumentMock();
+    const mockOfGetElementById = mock.fn((id) => {
+        if (id === testId) {
+            return testElement;
+        }
+        return null;
+    });
 
     before(() => {
-        Object.defineProperty(globalThis, 'document', {
-            value: {
-                getElementById(id) {
-                    if (id === testId) {
-                        return testElement;
-                    }
-                    return null;
-                },
-            },
-            configurable: true,
-            writable: true,
+        mockDocument.mock({
+            getElementById: mockOfGetElementById,
         });
     });
 
     after(() => {
-        if (originalDocument === undefined) {
-            delete globalThis.document;
-            return;
-        }
-
-        Object.defineProperty(globalThis, 'document', {
-            value: originalDocument,
-            configurable: true,
-            writable: true,
-        });
+        mockDocument.unmock();
     });
 
     it('should return the element when it exists', () => {
