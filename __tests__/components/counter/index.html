@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>カウンター</title>
+    <link rel="stylesheet" href="../style/style.css" />
+  </head>
+  <body>
+    <h1>カウンタコンポーネント単体テスト</h1>
+    <div id="test-target" class="test-target">
+      <h2>テスト対象カウンター</h2>
+      <div id="counter" class="counter"></div>
+    </div>
+
+    <div>
+      <h2>コンストラクタ</h2>
+      <p>
+        <input id="element-id" type="text" />
+        <button id="create-counter">カウンターを作成</button>
+      </p>
+    </div>
+
+    <div>
+      <h2>プロパティ</h2>
+
+      <h3>各プロパティの参照</h3>
+      <button id="get-value">値を取得</button>
+      <div id="value-display" class="value-display"></div>
+
+      <h3>value プロパティの設定</h3>
+      <p>
+        <input id="value-input" type="text" />
+        <input id="convert-from-string" type="checkbox" />
+        <label for="convert-from-string">number に変換</label>
+        <button id="set-value">set value()</button>
+      </p>
+    </div>
+
+    <div>
+      <h2>メソッド</h2>
+
+      <h3>increment() メソッドの呼び出し</h3>
+      <button id="increment">increment()</button>
+
+      <h3>decrement() メソッドの呼び出し</h3>
+      <button id="decrement">decrement()</button>
+    </div>
+
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

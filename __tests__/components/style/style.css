@@ -1,0 +1,25 @@
+/* Use a monospaced font for the whole document */
+body {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/**
+  * Counter styles
+  */
+.counter {
+  font-size: 2rem;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 3em;
+}
+
+.dice {
+  font-size: 2rem;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 3em;
+}
