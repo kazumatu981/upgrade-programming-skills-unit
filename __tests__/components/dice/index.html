@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ダイス</title>
+    <link rel="stylesheet" href="../style/style.css" />
+  </head>
+  <body>
+    <h1>ダイスコンポーネント単体テスト</h1>
+    <div id="test-target" class="test-target">
+      <h2>テスト対象ダイス</h2>
+      <div id="dice" class="dice"></div>
+    </div>
+
+    <div>
+      <h2>コンストラクタ</h2>
+      <p>
+        <input id="element-id" type="text" />
+        <button id="create-dice">ダイスを作成</button>
+      </p>
+    </div>
+
+    <div>
+      <h2>プロパティ</h2>
+
+      <h3>各プロパティの参照</h3>
+      <button id="get-properties">値を取得</button>
+      <div id="value-display" class="value-display"></div>
+
+      <h2>メソッド</h2>
+      <h3>start() メソッドの呼び出し</h3>
+      <button id="start">start()</button>
+
+      <h3>stop() メソッドの呼び出し</h3>
+      <button id="stop">stop()</button>
+    </div>
+  </body>
+</html>

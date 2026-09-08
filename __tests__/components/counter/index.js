@@ -17,8 +17,8 @@ function onPageLoad() {
 
     // 値取得イベントの登録
     document
-        .getElementById('get-value')
-        ?.addEventListener('click', onDisplayValueButtonClick);
+        .getElementById('get-properties')
+        ?.addEventListener('click', onGetPropertiesButtonClick);
 
     // 値の設定イベントの登録
     document
@@ -51,7 +51,7 @@ function onCreateCounterButtonClick() {
 /**
  * 値を取得ボタンクリックイベント
  */
-function onDisplayValueButtonClick() {
+function onGetPropertiesButtonClick() {
     try {
         const displayText = `
             value: ${testTargetCounter.value},
