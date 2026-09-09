@@ -8,7 +8,7 @@
             "name": "サンプルプロジェクトのデバッグ",
             "request": "launch",
             "type": "msedge",
-            "url": "http://127.0.0.1:3000/learn/sample_project/index.html",
+            "url": "http://127.0.0.1:3000/__tests__/components/index.html?vscode-livepreview=true",
             "webRoot": "${workspaceFolder}"
         }
     ]

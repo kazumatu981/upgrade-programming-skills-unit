@@ -1,19 +1,19 @@
-import { Counter } from '../../../lib/counter.js';
+import { Dice } from '../../../lib/dice.js';
 
 // ドキュメントをすべて読み込んだら onPageLoad関数を呼び出す
 document.addEventListener('DOMContentLoaded', onPageLoad);
 
-let testTargetCounter = null;
+let testTargetDice = null;
 /**
  * ページが読み込まれたときに呼び出される関数
  */
 function onPageLoad() {
     console.log('Page loaded');
 
-    // カウンタ作成イベントの登録
+    // ダイス作成イベントの登録
     document
-        .getElementById('create-counter')
-        ?.addEventListener('click', onCreateCounterButtonClick);
+        .getElementById('create-dice')
+        ?.addEventListener('click', onCreateDiceButtonClick);
 
     // 値取得イベントの登録
     document
@@ -25,24 +25,24 @@ function onPageLoad() {
         .getElementById('set-value')
         ?.addEventListener('click', onSetValueButtonClick);
 
-    // incrementボタンのイベント登録
+    // startボタンのイベント登録
     document
-        .getElementById('increment')
-        ?.addEventListener('click', onIncrementButtonClick);
+        .getElementById('start')
+        ?.addEventListener('click', onStartButtonClick);
 
-    // decrementボタンのイベント登録
+    // stopボタンのイベント登録
     document
-        .getElementById('decrement')
-        ?.addEventListener('click', onDecrementButtonClick);
+        .getElementById('stop')
+        ?.addEventListener('click', onStopButtonClick);
 }
 
 /**
- * カウンタを作成ボタンクリックのイベント
+ * ダイスを作成ボタンクリックのイベント
  */
-function onCreateCounterButtonClick() {
+function onCreateDiceButtonClick() {
     try {
-        const counterElementId = document.getElementById('element-id').value;
-        testTargetCounter = new Counter(counterElementId);
+        const diceElementId = document.getElementById('element-id').value;
+        testTargetDice = new Dice(diceElementId);
     } catch (error) {
         console.error(error);
     }
@@ -54,9 +54,11 @@ function onCreateCounterButtonClick() {
 function onGetPropertiesButtonClick() {
     try {
         const displayText = `
-            value: ${testTargetCounter.value},
-            maximum: ${testTargetCounter.maximum},
-            minimum: ${testTargetCounter.minimum}`;
+            value: ${testTargetDice.value},
+            maximum: ${testTargetDice.maximum},
+            minimum: ${testTargetDice.minimum},
+            state: ${testTargetDice.state}`;
+
         document.getElementById('value-display').textContent = displayText;
     } catch (error) {
         console.error(error);
@@ -78,22 +80,22 @@ function onSetValueButtonClick() {
             : valueInput;
 
         // 値の設定
-        testTargetCounter.value = valueToSet;
+        testTargetDice.value = valueToSet;
     } catch (error) {
         console.error(error);
     }
 }
 
-function onIncrementButtonClick() {
+function onStartButtonClick() {
     try {
-        testTargetCounter.increment();
+        testTargetDice.start();
     } catch (error) {
         console.error(error);
     }
 }
-function onDecrementButtonClick() {
+function onStopButtonClick() {
     try {
-        testTargetCounter.decrement();
+        testTargetDice.stop();
     } catch (error) {
         console.error(error);
     }
